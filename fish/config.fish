@@ -17,6 +17,17 @@ function fish_right_prompt
     echo (set_color e5e5e5)"$USER"@(hostname)
 end
 
+function fastfetch
+    set cols (tput cols 2>/dev/null; or echo 80)
+    if test $cols -ge 95
+        command fastfetch $argv
+    else if test $cols -ge 65
+        command fastfetch --logo-position top $argv
+    else
+        command fastfetch --logo none $argv
+    end
+end
+
 # indicator for vi
 function fish_mode_prompt
     switch "$fish_bind_mode"
@@ -92,9 +103,12 @@ export FZF_DEFAULT_OPTS="
 
 alias ls "exa --icons"
 alias treelist "tree -a -I '.git'"
-alias fetch "fastfetch --localip-show-ipv4 false"
-alias install "sudo pacman -S"
-alias remove "sudo pacman -Rns"
+alias seek "QT_QPA_PLATFORM=xcb ~/Downloads/SoulseekQt-2024-6-30.AppImage >/dev/null 2>&1 & disown"
+alias performance "sudo cpupower frequency-set -g performance"
+alias powersave "sudo cpupower frequency-set -g powersave"
+alias way "nohup waybar > /dev/null 2>&1 &"
+alias ff fastfetch
+alias kys "shutdown now"
 
 # TokyoNight Color Palette from https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_storm.fish
 set -l foreground c0caf5
@@ -147,3 +161,11 @@ end
 if not set -q SSH_AUTH_SOCK
     eval (ssh-agent -c)
 end
+
+# Created by `pipx` on 2025-11-14 02:46:17
+set PATH $PATH /home/agustinvf/.local/bin
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/agustinvf/.local/bin" $PATH

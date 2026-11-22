@@ -1,45 +1,57 @@
-/* Estilos globales */
+
 * {
     border-radius: 7px;
-    font-family: 'Martian Mono', monospace;
+    font-family: 'Martian Mono', monospace; 
     font-size: 16px;
+    border: none;
 }
 
 window#waybar {
-    background-color: transparent;
-    color: #cdd6f4;
+    background-color: transparent; 
+    color: #ffffff;
+    
+    margin: 10px 100px 0px 100px; 
+    
+
+    background-color: rgba(18, 18, 26, 0.9); 
+    border-radius: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.371); 
+    padding: 0px 12px; 
 }
 
 
-
-/* Contenedor de módulos (derecha e izquierda) */
 #clock,
+#clock-date,
 #battery,
 #cpu,
 #memory,
 #disk,
 #pulseaudio,
-#tray,
-#pulseaudio,
+#network,
+#bluetooth,
+#custom-monitor,
 #custom-power,
-#hyprland-workspaces,
-#window {
-    padding: 0 15px; /* Unificado el padding */
-    margin: 5px; /* Margen unificado para todos los módulos */
-    background-color: #303034; /* Color de fondo base */
+#workspaces {
+    padding: 0 12px;
+    margin: 5px;
+    background-color: transparent;
+    border-radius: 10px;
 }
 
-/* Módulo de Workspaces */
 #workspaces button {
-    margin: 5px 3px; /* Más compacto y uniforme */
-    color: #5e6277; /* Color inactivo */
-    }
+    padding: 0px 7px 0px 10px;
+    background-color: transparent;
+    color: #e1e2e8; 
+}
 
 #workspaces button.active {
-    color: #e36331; 
+    color: #c3175c; 
 }
 
 #workspaces button:hover {
     color: #cdd6f4;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
 }
-

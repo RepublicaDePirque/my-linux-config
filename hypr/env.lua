@@ -1,0 +1,5 @@
+hl.env("HYPRCURSOR_THEME", "Qogir-Dark")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Qogir-Dark")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("BROWSER", "firefox")

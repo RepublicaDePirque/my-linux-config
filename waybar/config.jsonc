@@ -1,19 +1,23 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "margin-top": 3,
+    "margin-left":300,
+    "margin-right":300,
+    "height": 30,
     "modules-left": [
-        "hyprland/window",
         "cpu",
-        "memory"
+        "memory",
+        "hyprland/workspaces"
 
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "clock#date",
+        "clock"
     ],
     "modules-right": [
-        "clock",
-        "tray",
+        "network",
+        "bluetooth",
         "pulseaudio",
         "battery",
         "custom/power"
@@ -21,60 +25,81 @@
 
     // Módulos
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
             "active": "",   // círculo lleno para activo
-            "default": ""   // círculo vacío para el resto
+            "default": ""   // círculo vacío para el resto
         },
-        "on-click": "hyprctl dispatch workspace {name}",
         "sort-by-number": true,
         "persistent-workspaces": {
             "*": [1, 2, 3, 4, 5]
         }
     },
 
-    "hyprland/window": {
-        "format": "󰖯 {}",
-        "max-length": 50,
-        "tooltip": true,
-        "tooltip-format": "Ventana activa: {title}",
-        "on-click": "kitty -e ssh starwarstel.net"
-    },
-    "clock": {
-    "format": "{:%H:%M}",
-    "tooltip": true,
-    "tooltip-format": "{:%d-%m-%Y}"
+    "clock":{
+        "format": " {:%H:%M}", // Formato de hora (ej:  10:34)
+        "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>",
+        "locale": "es_CL.UTF-8" // Para español
     },
 
-    "tray": {
-        "icon-size": 25,
-        "spacing": 8
+    // --- CAMBIO 3: Este es el NUEVO módulo de fecha ---
+    "clock#date": {
+        "format": " {:%a, %d %b}", // Formato de fecha (ej:  lun, 10 nov)
+        "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>",
+        "locale": "es_CL.UTF-8" // Para español
+    },
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 Conectado",
+        "format-disconnected": "󰤭 Desconectado",
+        // CAMBIA {name} POR {essid} AQUÍ ABAJO:
+        "tooltip-format-wifi": "Red: {essid}\nVelocidad: {bandwidthDownBits}  | {bandwidthUpBits} ",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click": "networkmanager_dmenu",
+        "max-length": 50 
+    },
+
+    "custom/monitor": {
+        "format": "󰍹 Monitores",  // Icono de Monitor (Nerd Font)
+        "on-click": "nwg-displays",
+        "tooltip": true,
+        "tooltip-format": "Configurar Pantallas"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂯 {device_alias}",
+        "format-disconnected": "󰂲",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
     },
 
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
         "format-muted": " Muted",
         "format-icons": {
             "default": ["", "", ""]
         },
-        "tooltip-format": "{icon} {desc}",
+        "tooltip": false, // Desactivamos el tooltip temporalmente para probar
         "on-click": "pavucontrol"
     },
     
     "cpu": {
-        "format": "󰍛 {usage}%",
+        "format": " {usage}%",
         "tooltip": true,
         "on-click": "kitty -e btop"
     },
 
     "memory": {
-        "format": " {percentage}%",
+        "format": "󰘚 {percentage}%",
         "tooltip": true,
         "on-click": "kitty -e btop"
     },
@@ -93,8 +118,10 @@
     },
 
     "custom/power": {
-        "format": "",
+        "format": "󰍃",
         "on-click": "wlogout",
         "tooltip": "Power Menu"
     }
+    
+
 }
