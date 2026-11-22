@@ -18,6 +18,12 @@
         "keybind": "s"
     },
     {
+        "label": "Hibernate",
+        "action": "systemctl hibernate",
+        "text-color": "#bb9af7",
+        "keybind": "y"
+    },
+    {
         "label": "Reboot",
         "action": "systemctl reboot",
         "text-color": "#f17c4b",
