@@ -1,6 +1,6 @@
 # my-linux-config
 
-Mis dotfiles de Arch Linux (Hyprland). Cada carpeta corresponde a `~/.config/<carpeta>`.
+Mis dotfiles de EndeavourOS (Hyprland). Cada carpeta corresponde a `~/.config/<carpeta>`.
 
 | Carpeta | Qué es |
 |---|---|
