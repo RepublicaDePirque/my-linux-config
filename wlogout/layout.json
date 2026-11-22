@@ -1,0 +1,32 @@
+[
+    {
+        "label": "Lock",
+        "action": "loginctl lock-session",
+        "text-color": "#5272a2",
+        "keybind": "l"
+    },
+    {
+        "label": "Logout",
+        "action": "loginctl terminate-user $USER",
+        "text-color": "#6292b3",
+        "keybind": "o"
+    },
+    {
+        "label": "Suspend",
+        "action": "systemctl suspend",
+        "text-color": "#e3b342",
+        "keybind": "s"
+    },
+    {
+        "label": "Reboot",
+        "action": "systemctl reboot",
+        "text-color": "#f17c4b",
+        "keybind": "r"
+    },
+    {
+        "label": "Shutdown",
+        "action": "systemctl poweroff",
+        "text-color": "#f0425c",
+        "keybind": "h"
+    }
+]

@@ -6,6 +6,8 @@ Mis dotfiles de Arch Linux (Hyprland). Cada carpeta corresponde a `~/.config/<ca
 |---|---|
 | `hypr/` | Hyprland (config en Lua), hyprpaper, hypridle, hyprlock |
 | `waybar/` | Barra superior |
+| `kitty/` | Terminal kitty |
+| `wlogout/` | Menú de apagado/sesión |
 | `rofi/` | Lanzador de apps (tema Tokyo) |
 | `fish/` | Shell fish (`config.fish`, `conf.d/`, `functions/`) |
 | `fastfetch/` | Fastfetch y su logo |
@@ -16,14 +18,14 @@ Mis dotfiles de Arch Linux (Hyprland). Cada carpeta corresponde a `~/.config/<ca
 ```sh
 git clone git@github.com:RepublicaDePirque/my-linux-config.git
 cd my-linux-config
-cp -r hypr waybar rofi fish fastfetch nvim ~/.config/
+cp -r hypr waybar rofi fish fastfetch nvim kitty wlogout ~/.config/
 ```
 
 Si ya tienes configs en esas carpetas, haz antes un respaldo.
 
 ## Paquetes necesarios
 
-`hyprland hyprpaper hypridle hyprlock hyprsunset waybar rofi fish fastfetch neovim swaync blueman network-manager-applet xwaylandvideobridge`
+`hyprland hyprpaper hypridle hyprlock hyprsunset waybar rofi kitty wlogout fish fastfetch neovim swaync blueman network-manager-applet xwaylandvideobridge`
 
 El cursor es `Qogir-Dark`. Neovim instala los plugins solo la primera vez que se abre.
 
